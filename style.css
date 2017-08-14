@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	padding:0 0 100px 0;
+	background:url('book.jpg') no-repeat;
+	background-size: 100% 100%;
+}
+.title{
+	text-align: center;
+}
+.p_start{
+	text-indent: 25px;
+}
+.container{
+	width: 80%;
+	margin: 0 auto;
+	background-color:#FBF7F7; 
+	padding:5px;
+	min-height: 500px;
+}
+.clearfix{
+	clear:both;
+}
+
+.book-img{
+	margin-left:5%;
+	width:15%;
+}
+.book-text{
+	width:75%;
+}
+
+@media(max-width:700px){
+.container{
+    width: 100%;
+    margin: 0 auto;
+}
+.img1{
+	width:100%;
+}
+.img2{
+	width:100%;
+}
+}
+
+@media(max-width:768px){
+.book-img{
+	width:30%;
+	margin:0 auto;
+	float:none !important;
+}
+.book-img img{
+	width:40%;
+	margin:0 auto;
+}
+.book-text{
+	float:left !important;
+	width:96% !important;
+}
+.book-text h3,h4{
+	font-size:0.8em;
+}
+}
+
+@media(max-width:1015px){
+.book-img{
+	margin-left:2%;
+}
+.book-text{
+	width:75%;
+}
+
+}
+
+
+@media(max-width:465px){
+h1{
+	font-size:1.3em !important;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+

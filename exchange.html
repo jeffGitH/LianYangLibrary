@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <title>联洋实体书网上图书馆</title>
+</head>
+
+<body>
+    <div>
+        <h1>联洋实体书网上图书馆</h1>
+    </div>
+    <div class="container">
+        <div style="margin-left:auto; margin-right:auto; width:500px">
+            <h2>借书单</h2>
+            <hr/>
+            <form action="http://www.z2hacademy.cn/book/exchange/" method="post">
+                <table style="border-collapse: collapse; width:90%;">
+                    <tr>
+                        <td align="center" style="width:100px; text-align:right; padding:5px;">姓名<span style="color:red;">*</span></td>
+                        <td><input type="text" name="name" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="text-align:right;padding:5px;">联系电话<span style="color:red;">(*)</span></td>
+                        <td><input type="text" name="tel" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="text-align:right;padding:5px;">联系地址<span style="color:red;">(*)</span></td>
+                        <td><input type="text" name="tel" required="required" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="text-align:right;padding:5px;">所借图书<span style="color:red;">(*)</span></td>
+                        <td><input type="text" name="book_from" maxlength="100" style="width:300px;" /></td>
+                    </tr>
+
+                    <tr>
+                        <td align="center" style="text-align:right;padding:5px;">交换的图书<span style="color:red">(*)</span></td>
+                        <td><input type="text" name="book_to" maxlength="100" style="width:300px;" /></td>
+                    </tr>
+                </table>
+                <hr/>
+                <input type="submit" value="提交" />
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

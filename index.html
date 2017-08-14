@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <title> 联洋实体书网上图书馆 </title>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+</head>
+
+<body>
+    
+    <div>
+        <h1>联洋实体书网上图书馆</h1>
+    </div>
+    <div class="container">
+        <div style="margin-left:auto; margin-right:auto; width:600px">
+            <h2><span id="booktype"></span></h2>            
+        </div>
+        <span id="books"></span>
+    </div>
+ <script type="text/javascript">
+    $(function () {        
+            $.get("http://www.z2hacademy.cn/book/type/", function (data) {
+                    var str = "<table border='1px' style='border-collapse:collapse;margin:auto;'><tr>";
+                    var typeno = "", typename = "";
+                    data.forEach(function (element) {
+                        str = str + "<td><a href=\"javascript:changetype('"+element.typeno+"','"+element.name+"')\">"+element.name+"</a></td>";
+                        if(typeno == "") {
+                            typeno = element.typeno;
+                            typename = element.name;
+                        }
+                    }, this);
+                    str = str + "<td><a href='exchange.html'>置换图书</a></td><td><a href='rule.html'>借阅规则</a></td></tr></table>";
+                    $("#booktype").html(str);
+                    $.get("http://www.z2hacademy.cn/book/list/", {"typeno": typeno}, function (books) {
+                        var str1 = "<div style='width:100%;'><h2>《"+typename+"》</h2></div>";
+                        books.forEach(function (element) {
+                            str1 = str1 + "<div><div class='book-img' style='float:left;margin-top:20px;'><img style='width:100%;' src='"+element.image+"'></div>";
+                            str1 = str1 + "<div class='book-text' style='float:right;'><h3>"+element.name+"</h3>";
+                            str1 = str1 + "<h4>"+element.desc+"</h4></div><div class='clearfix'></div></div>";
+                        }, this);  
+                        $("#books").html(str1);                  
+                    }); 
+            });            
+    });
+
+    function changetype(typeno, typename){
+        $.get("http://www.z2hacademy.cn/book/list/", {"typeno": typeno}, function (books) {
+            var str = "<div style='width:100%;'><h2>《"+typename+"》</h2></div>";
+            books.forEach(function (element) {
+                str = str + "<div><div class='book-img' style='float:left;margin-top:20px;'><img style='width:100%;' src='"+element.image+"'></div>";
+                str = str + "<div class='book-text' style='float:right;'><h3>"+element.name+"</h3>";
+                str = str + "<h4>"+element.desc+"</h4></div><div class='clearfix'></div></div>";
+            }, this);
+            $("#books").html(str);  
+        });         
+    }
+</script>
+<script type="text/javascript" src="http://www.z2hacademy.cn/static/peixun_web/script/publishshare.js "></script>
+
+</body>
+
+</html>
